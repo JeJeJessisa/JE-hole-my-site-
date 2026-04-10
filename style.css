@@ -247,6 +247,288 @@ body {
     .hobbies-grid {
         grid-template-columns: 1fr;
     }
+    
+    .course-entry-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .course-entry-content {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .course-entry-image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .lessons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-link {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+/* 导航栏样式 */
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    text-decoration: none;
+    color: #636e72;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(31, 38, 135, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.nav-link:hover {
+    background: #6c5ce7;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+}
+
+.nav-link.active {
+    background: #ff6b6b;
+    color: white;
+}
+
+.nav-link i {
+    margin-right: 8px;
+}
+
+/* 课程介绍 */
+.course-intro {
+    margin-bottom: 40px;
+}
+
+.course-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.course-card p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #636e72;
+    line-height: 1.6;
+}
+
+.course-card ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.course-card li {
+    position: relative;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #636e72;
+    line-height: 1.4;
+}
+
+.course-card li::before {
+    content: '✨';
+    position: absolute;
+    left: -20px;
+    top: 0;
+}
+
+/* 课程大纲 */
+.course-outline {
+    margin-bottom: 40px;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.lesson-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+}
+
+.lesson-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.lesson-card h3 {
+    font-size: 1.3rem;
+    color: #2d3436;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.lesson-card p {
+    color: #636e72;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* 学习资源 */
+.resources-section {
+    margin-bottom: 40px;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+}
+
+.resource-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.resource-card h3 {
+    font-size: 1.3rem;
+    color: #2d3436;
+    margin-bottom: 15px;
+}
+
+.resource-card p {
+    color: #636e72;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Python课程入口 */
+.python-course-section {
+    margin-bottom: 40px;
+}
+
+.course-entry-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease;
+}
+
+.course-entry-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+}
+
+.course-entry-content {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.course-entry-content h3 {
+    font-size: 1.8rem;
+    color: #2d3436;
+    margin-bottom: 15px;
+}
+
+.course-entry-content p {
+    font-size: 1.1rem;
+    color: #636e72;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.course-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: linear-gradient(90deg, #ff6b6b, #6c5ce7);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.course-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.5);
+}
+
+.course-link i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.course-link:hover i {
+    transform: translateX(5px);
+}
+
+.course-entry-image {
+    flex-shrink: 0;
+}
+
+.course-entry-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* 滚动条样式 */
