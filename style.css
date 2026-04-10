@@ -45,6 +45,34 @@ body {
     font-weight: 500;
 }
 
+/* 课程头部 */
+.course-header {
+    text-align: center;
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 60px 30px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: float 3s ease-in-out infinite;
+}
+
+.course-header h1 {
+    font-size: 3rem;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.course-tagline {
+    font-size: 1.3rem;
+    color: #636e72;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
 /* 个人信息卡片 */
 .profile-card {
     display: flex;
@@ -199,17 +227,61 @@ body {
 
 /* 底部 */
 .footer {
-    text-align: center;
-    padding: 20px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
-    margin-top: 40px;
+    margin-top: 60px;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.footer p {
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo i {
+    font-size: 1.8rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #636e72;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #6c5ce7;
+}
+
+.footer-copyright {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.footer-copyright p {
     color: #636e72;
     font-size: 0.9rem;
 }
@@ -284,44 +356,111 @@ body {
         width: 200px;
         justify-content: center;
     }
+    
+    /* 响应式导航栏 */
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .course-header {
+        padding: 40px 20px;
+    }
+    
+    .course-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .footer-content {
+        padding: 30px 20px;
+    }
+    
+    .footer-links {
+        gap: 15px;
+    }
 }
 
-/* 导航栏样式 */
-.nav {
+/* 顶部导航栏 */
+.main-nav {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 20px rgba(31, 38, 135, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
 }
 
-.nav-link {
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.brand-link {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 25px;
+    text-decoration: none;
+    color: #ff6b6b;
+    transition: color 0.3s ease;
+}
+
+.brand-link:hover {
+    color: #6c5ce7;
+}
+
+.brand-link i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
     text-decoration: none;
     color: #636e72;
     font-weight: 500;
-    box-shadow: 0 4px 15px rgba(31, 38, 135, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
 }
 
-.nav-link:hover {
+.nav-item:hover {
+    color: #6c5ce7;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
     background: #6c5ce7;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+    transition: width 0.3s ease;
 }
 
-.nav-link.active {
-    background: #ff6b6b;
-    color: white;
-}
-
-.nav-link i {
-    margin-right: 8px;
+.nav-item:hover::after {
+    width: 100%;
 }
 
 /* 课程介绍 */

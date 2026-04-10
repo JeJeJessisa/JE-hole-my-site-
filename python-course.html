@@ -3,37 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python基础课程 - 戴恩的次元空间</title>
+    <title>Python基础课程 - 独立学习站点</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- 顶部导航栏 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="python-course.html" class="brand-link">
+                    <i class="fab fa-python"></i> Python基础课程
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="#intro" class="nav-item">课程简介</a>
+                <a href="#content" class="nav-item">核心内容</a>
+                <a href="#goals" class="nav-item">学习目标</a>
+                <a href="#resources" class="nav-item">学习资源</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- 头部区域 -->
-        <header class="header">
+        <header class="course-header">
             <div class="header-content">
                 <h1>Python基础课程</h1>
-                <p class="subtitle">基础编程素养</p>
+                <p class="subtitle">基础编程素养培养</p>
+                <div class="course-tagline">
+                    从零基础开始，掌握Python核心技能
+                </div>
             </div>
         </header>
 
-        <!-- 导航栏 -->
-        <nav class="nav">
-            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> 首页</a>
-            <a href="#" class="nav-link active"><i class="fab fa-python"></i> Python课程</a>
-        </nav>
-
         <!-- 课程介绍 -->
-        <section class="course-intro">
+        <section id="intro" class="course-intro">
             <h2 class="section-title">🐍 课程简介</h2>
             <div class="course-card">
                 <p>欢迎来到Python基础课程！本课程专注于培养基础编程素养，帮助你掌握Python的核心概念和基础技能。</p>
-                <p>通过本课程的学习，你将建立扎实的Python编程基础，为后续的进阶学习和实际应用打下良好的基础。</p>
+                <p>Python是一种简单易学、功能强大的编程语言，广泛应用于Web开发、数据分析、人工智能等领域。通过本课程的学习，你将建立扎实的Python编程基础，为后续的进阶学习和实际应用打下良好的基础。</p>
             </div>
         </section>
 
         <!-- 核心内容 -->
-        <section class="core-content">
+        <section id="content" class="core-content">
             <h2 class="section-title">📚 核心内容</h2>
             <div class="content-grid">
                 <!-- Python基础语法 -->
@@ -92,7 +106,7 @@
         </section>
 
         <!-- 学习目标 -->
-        <section class="learning-goals">
+        <section id="goals" class="learning-goals">
             <h2 class="section-title">🎯 学习目标</h2>
             <div class="goals-card">
                 <ul>
@@ -106,9 +120,50 @@
             </div>
         </section>
 
+        <!-- 学习资源 -->
+        <section id="resources" class="resources-section">
+            <h2 class="section-title">📦 学习资源</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📖</div>
+                    <h3>推荐书籍</h3>
+                    <p>《Python编程：从入门到实践》</p>
+                    <p>《Python基础教程》</p>
+                    <p>《简明Python教程》</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">🌐</div>
+                    <h3>在线资源</h3>
+                    <p>Python官方文档</p>
+                    <p>菜鸟教程</p>
+                    <p>W3Schools Python教程</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">💻</div>
+                    <h3>开发工具</h3>
+                    <p>PyCharm</p>
+                    <p>VS Code</p>
+                    <p>Jupyter Notebook</p>
+                </div>
+            </div>
+        </section>
+
         <!-- 底部 -->
         <footer class="footer">
-            <p>© 2026 戴恩的次元空间 | 制作于广东恩平</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fab fa-python"></i> Python基础课程
+                </div>
+                <div class="footer-links">
+                    <a href="#intro">课程简介</a>
+                    <a href="#content">核心内容</a>
+                    <a href="#goals">学习目标</a>
+                    <a href="#resources">学习资源</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>© 2026 Python基础课程 | 保持整体设计风格</p>
+                </div>
+            </div>
         </footer>
     </div>
 
