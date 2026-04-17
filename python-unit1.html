@@ -328,5 +328,78 @@ finally:
     </div>
 
     <script src="script.js"></script>
+    <!-- Pyodide for running Python code -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <script>
+        // Initialize Pyodide
+        let pyodide;
+        async function initPyodide() {
+            pyodide = await loadPyodide({
+                indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+            });
+            console.log("Pyodide initialized");
+        }
+        
+        // Run Python code
+        async function runPythonCode(code, outputElement) {
+            try {
+                outputElement.textContent = "Running...";
+                const result = await pyodide.runPythonAsync(code);
+                outputElement.textContent = result !== undefined ? result : "Code executed successfully";
+            } catch (error) {
+                outputElement.textContent = `Error: ${error.message}`;
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = initPyodide;
+        
+        // Add code editor functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add run buttons to code blocks
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach((codeBlock, index) => {
+                const pre = codeBlock.parentElement;
+                const code = codeBlock.textContent;
+                
+                // Create editor container
+                const editorContainer = document.createElement('div');
+                editorContainer.className = 'code-editor';
+                editorContainer.innerHTML = `
+                    <div class="editor-header">
+                        <h4>代码编辑器 ${index + 1}</h4>
+                        <button class="collapse-btn">▼</button>
+                        <button class="run-btn">运行代码</button>
+                    </div>
+                    <div class="editor-content">
+                        <textarea class="code-area">${code}</textarea>
+                        <div class="output-area">输出结果将显示在这里</div>
+                    </div>
+                `;
+                
+                // Replace pre with editor container
+                pre.replaceWith(editorContainer);
+                
+                // Add event listeners
+                const collapseBtn = editorContainer.querySelector('.collapse-btn');
+                const runBtn = editorContainer.querySelector('.run-btn');
+                const editorContent = editorContainer.querySelector('.editor-content');
+                const codeArea = editorContainer.querySelector('.code-area');
+                const outputArea = editorContainer.querySelector('.output-area');
+                
+                // Collapse functionality
+                collapseBtn.addEventListener('click', function() {
+                    editorContent.classList.toggle('collapsed');
+                    collapseBtn.textContent = editorContent.classList.contains('collapsed') ? '▶' : '▼';
+                });
+                
+                // Run code functionality
+                runBtn.addEventListener('click', function() {
+                    const code = codeArea.value;
+                    runPythonCode(code, outputArea);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
