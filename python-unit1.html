@@ -369,6 +369,7 @@ finally:
                     <div class="editor-header">
                         <h4>代码编辑器 ${index + 1}</h4>
                         <button class="collapse-btn">▼</button>
+                        <button class="reset-btn">重置代码</button>
                         <button class="run-btn">运行代码</button>
                     </div>
                     <div class="editor-content">
@@ -382,6 +383,7 @@ finally:
                 
                 // Add event listeners
                 const collapseBtn = editorContainer.querySelector('.collapse-btn');
+                const resetBtn = editorContainer.querySelector('.reset-btn');
                 const runBtn = editorContainer.querySelector('.run-btn');
                 const editorContent = editorContainer.querySelector('.editor-content');
                 const codeArea = editorContainer.querySelector('.code-area');
@@ -391,6 +393,12 @@ finally:
                 collapseBtn.addEventListener('click', function() {
                     editorContent.classList.toggle('collapsed');
                     collapseBtn.textContent = editorContent.classList.contains('collapsed') ? '▶' : '▼';
+                });
+                
+                // Reset code functionality
+                resetBtn.addEventListener('click', function() {
+                    codeArea.value = code;
+                    outputArea.textContent = '输出结果将显示在这里';
                 });
                 
                 // Run code functionality

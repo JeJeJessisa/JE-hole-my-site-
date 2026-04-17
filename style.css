@@ -1018,6 +1018,24 @@ code {
     background: rgba(255, 255, 255, 0.2);
 }
 
+.reset-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+}
+
+.reset-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
 .run-btn {
     background: white;
     color: #6c5ce7;
@@ -1109,6 +1127,12 @@ code {
         min-height: 50px;
         font-size: 0.8rem;
         padding: 10px;
+    }
+    
+    .reset-btn {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+        margin-right: 4px;
     }
     
     .run-btn {
