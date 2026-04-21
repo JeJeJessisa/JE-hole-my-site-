@@ -973,171 +973,260 @@ code {
 
 /* 代码编辑器 */
 .code-editor {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    margin: 15px 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(108, 92, 231, 0.2);
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed;
+    width: 500px;
+    max-width: 95vw;
+    z-index: 1000;
+    top: 100px;
+    right: 30px;
+    resize: both;
+    min-width: 300px;
+    min-height: 200px;
 }
 
 .code-editor:hover {
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+    box-shadow: 0 15px 50px rgba(31, 38, 135, 0.3);
+    border-color: rgba(108, 92, 231, 0.4);
 }
 
 .editor-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 15px;
-    background: linear-gradient(90deg, #ff6b6b, #6c5ce7);
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #6c5ce7 100%);
     color: white;
-    cursor: pointer;
+    cursor: grab;
+    user-select: none;
+    position: relative;
+}
+
+.editor-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+}
+
+.editor-header.dragging {
+    cursor: grabbing;
 }
 
 .editor-header h4 {
     margin: 0;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.editor-header h4::before {
+    content: '🐍';
+    font-size: 1.2rem;
+}
+
+.editor-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .collapse-btn {
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: background 0.3s ease;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .collapse-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: rgba(255, 100, 100, 0.8);
+    transform: scale(1.05);
 }
 
 .reset-btn {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-right: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .reset-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .run-btn {
     background: white;
     color: #6c5ce7;
     border: none;
-    padding: 6px 12px;
+    padding: 7px 18px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .run-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
 }
 
 .editor-content {
-    padding: 15px;
-    transition: all 0.3s ease;
+    padding: 18px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
 }
 
 .editor-content.collapsed {
     max-height: 0;
-    padding: 0;
+    padding: 0 18px;
     overflow: hidden;
 }
 
 .code-area {
     width: 100%;
-    min-height: 100px;
-    padding: 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    font-family: 'Courier New', Courier, monospace;
+    min-height: 120px;
+    padding: 14px;
+    border: 2px solid #e8e8f0;
+    border-radius: 8px;
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.6;
     resize: vertical;
-    background: #f8f9fa;
-    margin-bottom: 10px;
-    transition: border-color 0.3s ease;
+    background: linear-gradient(135deg, #fdfdfd 0%, #f8f9ff 100%);
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .code-area:focus {
     outline: none;
     border-color: #6c5ce7;
-    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05), 0 0 0 3px rgba(108, 92, 231, 0.15);
 }
 
 .output-area {
-    padding: 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    background: #f8f9fa;
-    min-height: 60px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    padding: 14px;
+    border: 2px solid #e8e8f0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    min-height: 80px;
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
     white-space: pre-wrap;
-    color: #333;
+    color: #50fa7b;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.output-area::before {
+    content: '输出';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 0.7rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* 响应式代码编辑器 */
 @media (max-width: 768px) {
     .code-editor {
-        margin: 10px 0;
+        width: 100% !important;
+        max-width: none;
+        right: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        top: auto !important;
+        border-radius: 12px 12px 0 0;
+        resize: vertical;
     }
     
     .editor-header {
-        padding: 10px 12px;
+        padding: 12px 15px;
     }
     
     .editor-header h4 {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
     
     .editor-content {
-        padding: 12px;
+        padding: 15px;
     }
     
     .code-area {
-        min-height: 80px;
-        font-size: 0.8rem;
-        padding: 10px;
+        min-height: 100px;
+        font-size: 0.85rem;
+        padding: 12px;
     }
     
     .output-area {
-        min-height: 50px;
+        min-height: 70px;
         font-size: 0.8rem;
-        padding: 10px;
+        padding: 12px;
     }
     
     .reset-btn {
-        padding: 4px 8px;
-        font-size: 0.7rem;
-        margin-right: 4px;
+        padding: 5px 10px;
+        font-size: 0.75rem;
     }
     
     .run-btn {
-        padding: 4px 8px;
-        font-size: 0.7rem;
+        padding: 5px 14px;
+        font-size: 0.75rem;
     }
 }
 
@@ -1237,4 +1326,27 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #6c5ce7;
+}
+
+/* 浮动切换按钮 */
+.floating-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #ff6b6b, #6c5ce7);
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.floating-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
 }

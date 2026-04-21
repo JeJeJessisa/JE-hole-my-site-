@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python基础课程 - 第一单元：基础语法</title>
+    <title>Python基础课程 - 第二单元：数据结构</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -19,8 +19,8 @@
             <div class="nav-menu">
                 <a href="index.html" class="nav-item"><i class="fas fa-home"></i> 首页</a>
                 <a href="python-course.html" class="nav-item">课程总览</a>
-                <a href="python-unit1.html" class="nav-item active">第一单元</a>
-                <a href="python-unit2.html" class="nav-item">第二单元</a>
+                <a href="python-unit1.html" class="nav-item">第一单元</a>
+                <a href="python-unit2.html" class="nav-item active">第二单元</a>
                 <a href="python-unit3.html" class="nav-item">第三单元</a>
                 <a href="python-unit4.html" class="nav-item">第四单元</a>
             </div>
@@ -31,10 +31,10 @@
         <!-- 头部区域 -->
         <header class="course-header">
             <div class="header-content">
-                <h1>第一单元：Python基础语法</h1>
-                <p class="subtitle">快速通关，掌握Python核心语法</p>
+                <h1>第二单元：数据结构</h1>
+                <p class="subtitle">掌握Python核心数据结构</p>
                 <div class="course-tagline">
-                    专为小白设计，从零开始学习Python
+                    专为小白设计，从零开始学习数据结构
                 </div>
             </div>
         </header>
@@ -43,8 +43,8 @@
         <section class="unit-intro">
             <h2 class="section-title">📚 单元介绍</h2>
             <div class="course-card">
-                <p>欢迎来到Python基础语法单元！这是你学习Python的第一步，也是最重要的一步。在本单元中，你将学习Python的基本语法结构，为后续的学习打下坚实的基础。</p>
-                <p>本单元适合完全的编程小白，我们会从最基础的概念开始，一步一步引导你进入Python的世界。</p>
+                <p>欢迎来到Python数据结构单元！在本单元中，你将学习Python中常用的数据结构，这些是构建复杂程序的基础。</p>
+                <p>数据结构是存储和组织数据的方式，选择合适的数据结构可以提高程序的效率和可读性。本单元将详细介绍Python中最常用的数据结构，包括列表、元组、字典和集合。</p>
             </div>
         </section>
 
@@ -53,12 +53,12 @@
             <h2 class="section-title">🎯 学习目标</h2>
             <div class="goals-card">
                 <ul>
-                    <li>了解Python的基本概念和特点</li>
-                    <li>掌握变量和数据类型的使用</li>
-                    <li>学习基本运算符和表达式</li>
-                    <li>理解条件语句和循环语句</li>
-                    <li>掌握输入输出操作</li>
-                    <li>了解异常处理的基本概念</li>
+                    <li>掌握列表（List）的基本操作和使用场景</li>
+                    <li>了解元组（Tuple）的特点和使用方法</li>
+                    <li>学习字典（Dictionary）的键值对操作</li>
+                    <li>理解集合（Set）的特性和应用</li>
+                    <li>掌握字符串的常用操作</li>
+                    <li>能够根据实际需求选择合适的数据结构</li>
                 </ul>
             </div>
         </section>
@@ -67,190 +67,234 @@
         <section class="unit-content">
             <h2 class="section-title">📖 知识点讲解</h2>
             
-            <!-- 1. Python简介 -->
+            <!-- 1. 列表（List） -->
             <div class="content-card">
-                <h3>1. Python简介</h3>
-                <p>Python是一种简单易学、功能强大的编程语言。它的语法简洁明了，非常适合初学者学习。</p>
-                <p><strong>Python的特点：</strong></p>
-                <ul>
-                    <li>语法简洁，代码可读性高</li>
-                    <li>面向对象编程</li>
-                    <li>丰富的标准库和第三方库</li>
-                    <li>跨平台，可在Windows、Mac、Linux等系统上运行</li>
-                    <li>广泛应用于Web开发、数据分析、人工智能等领域</li>
-                </ul>
+                <h3>1. 列表（List）</h3>
+                <p>列表是Python中最常用的数据结构之一，它可以存储多个元素，并且可以修改。</p>
+                
+                <pre><code># 创建列表
+fruits = ["苹果", "香蕉", "橙子", "葡萄"]
+numbers = [1, 2, 3, 4, 5]
+mixed = ["苹果", 1, True, 3.14]
+
+# 访问列表元素
+print(fruits[0])  # 苹果
+print(fruits[-1])  # 葡萄
+
+# 切片操作
+print(fruits[1:3])  # ["香蕉", "橙子"]
+print(fruits[:2])  # ["苹果", "香蕉"]
+print(fruits[2:])  # ["橙子", "葡萄"]
+
+# 修改列表
+fruits[0] = "草莓"
+print(fruits)  # ["草莓", "香蕉", "橙子", "葡萄"]
+
+# 添加元素
+fruits.append("梨")
+print(fruits)  # ["草莓", "香蕉", "橙子", "葡萄", "梨"]
+
+# 插入元素
+fruits.insert(1, "桃子")
+print(fruits)  # ["草莓", "桃子", "香蕉", "橙子", "葡萄", "梨"]
+
+# 删除元素
+fruits.remove("香蕉")
+print(fruits)  # ["草莓", "桃子", "橙子", "葡萄", "梨"]
+
+# 弹出元素
+popped = fruits.pop()
+print(popped)  # 梨
+print(fruits)  # ["草莓", "桃子", "橙子", "葡萄"]
+
+# 列表长度
+print(len(fruits))  # 4
+
+# 排序
+numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+numbers.sort()
+print(numbers)  # [1, 1, 2, 3, 4, 5, 6, 9]
+
+# 反转
+fruits.reverse()
+print(fruits)  # ["葡萄", "橙子", "桃子", "草莓"]</code></pre>
             </div>
 
-            <!-- 2. 变量和数据类型 -->
+            <!-- 2. 元组（Tuple） -->
             <div class="content-card">
-                <h3>2. 变量和数据类型</h3>
-                <p><strong>变量：</strong>变量是用来存储数据的容器。在Python中，变量不需要声明类型，直接赋值即可。</p>
-                <pre><code># 变量赋值
-name = "小明"
-age = 18
-height = 1.75
-is_student = True</code></pre>
+                <h3>2. 元组（Tuple）</h3>
+                <p>元组与列表类似，但元组是不可修改的（immutable）。</p>
                 
-                <p><strong>数据类型：</strong></p>
-                <ul>
-                    <li><strong>整数(int)：</strong>如 1, 2, 3, -4</li>
-                    <li><strong>浮点数(float)：</strong>如 1.0, 2.5, -3.14</li>
-                    <li><strong>字符串(str)：</strong>如 "Hello", 'Python'</li>
-                    <li><strong>布尔值(bool)：</strong>True 或 False</li>
-                </ul>
-                
-                <pre><code># 查看数据类型
-print(type(name))    # &lt;class 'str'&gt;
-print(type(age))     # &lt;class 'int'&gt;
-print(type(height))  # &lt;class 'float'&gt;
-print(type(is_student))  # &lt;class 'bool'&gt;</code></pre>
+                <pre><code># 创建元组
+tuple1 = (1, 2, 3)
+tuple2 = ("苹果", "香蕉", "橙子")
+tuple3 = (1, "苹果", True)
+
+# 访问元组元素
+print(tuple2[0])  # 苹果
+print(tuple2[-1])  # 橙子
+
+# 切片操作
+print(tuple2[1:3])  # ("香蕉", "橙子")
+
+# 元组长度
+print(len(tuple1))  # 3
+
+# 注意：元组不可修改
+# tuple1[0] = 4  # 这会报错
+
+# 元组的优点：占用内存少，访问速度快，可作为字典的键
+
+# 单元素元组需要加逗号
+single_tuple = (42,)
+print(type(single_tuple))  # &lt;class 'tuple'&gt;
+
+# 元组解包
+x, y, z = tuple1
+print(x, y, z)  # 1 2 3</code></pre>
             </div>
 
-            <!-- 3. 运算符和表达式 -->
+            <!-- 3. 字典（Dictionary） -->
             <div class="content-card">
-                <h3>3. 运算符和表达式</h3>
-                <p><strong>算术运算符：</strong></p>
-                <ul>
-                    <li>+ (加法)</li>
-                    <li>- (减法)</li>
-                    <li>* (乘法)</li>
-                    <li>/ (除法)</li>
-                    <li>// (整除)</li>
-                    <li>% (取模)</li>
-                    <li>** (幂)</li>
-                </ul>
+                <h3>3. 字典（Dictionary）</h3>
+                <p>字典是一种键值对（key-value）数据结构，通过键来访问值。</p>
                 
-                <pre><code># 算术运算
-a = 10
-b = 3
-print(a + b)  # 13
-print(a - b)  # 7
-print(a * b)  # 30
-print(a / b)  # 3.3333333333333335
-print(a // b)  # 3
-print(a % b)  # 1
-print(a ** b)  # 1000</code></pre>
-                
-                <p><strong>比较运算符：</strong></p>
-                <ul>
-                    <li>== (等于)</li>
-                    <li>!= (不等于)</li>
-                    <li>&gt; (大于)</li>
-                    <li>&lt; (小于)</li>
-                    <li>&gt;= (大于等于)</li>
-                    <li>&lt;= (小于等于)</li>
-                </ul>
-                
-                <p><strong>逻辑运算符：</strong></p>
-                <ul>
-                    <li>and (与)</li>
-                    <li>or (或)</li>
-                    <li>not (非)</li>
-                </ul>
+                <pre><code># 创建字典
+student = {
+    "name": "小明",
+    "age": 18,
+    "grade": "高三",
+    "scores": {"语文": 90, "数学": 85, "英语": 95}
+}
+
+# 访问字典值
+print(student["name"])  # 小明
+print(student.get("age"))  # 18
+
+# 使用get方法访问不存在的键
+print(student.get("gender", "未知"))  # 未知
+
+# 修改字典
+student["age"] = 19
+print(student["age"])  # 19
+
+# 添加新键值对
+student["gender"] = "男"
+print(student["gender"])  # 男
+
+# 删除键值对
+removed = student.pop("grade")
+print(removed)  # 高三
+print(student)  # {'name': '小明', 'age': 19, 'scores': {'语文': 90, '数学': 85, '英语': 95}, 'gender': '男'}
+
+# 获取所有键
+print(student.keys())  # dict_keys(['name', 'age', 'scores', 'gender'])
+
+# 获取所有值
+print(student.values())  # dict_values(['小明', 19, {'语文': 90, '数学': 85, '英语': 95}, '男'])
+
+# 获取所有键值对
+print(student.items())  # dict_items([('name', '小明'), ('age', 19), ('scores', {'语文': 90, '数学': 85, '英语': 95}), ('gender', '男')])
+
+# 遍历字典
+for key, value in student.items():
+    print(f"{key}: {value}")</code></pre>
             </div>
 
-            <!-- 4. 条件语句 -->
+            <!-- 4. 集合（Set） -->
             <div class="content-card">
-                <h3>4. 条件语句</h3>
-                <p>条件语句用于根据不同的条件执行不同的代码块。</p>
+                <h3>4. 集合（Set）</h3>
+                <p>集合是一种无序的、不包含重复元素的数据结构。</p>
                 
-                <pre><code># if语句
-age = 18
-if age >= 18:
-    print("你已经成年了")
-else:
-    print("你还未成年")
+                <pre><code># 创建集合
+set1 = {1, 2, 3, 4, 5}
+set2 = {"苹果", "香蕉", "橙子"}
 
-# if-elif-else语句
-score = 85
-if score >= 90:
-    print("优秀")
-elif score >= 80:
-    print("良好")
-elif score >= 60:
-    print("及格")
-else:
-    print("不及格")</code></pre>
+# 从列表创建集合
+set3 = set([1, 2, 2, 3, 3, 3])
+print(set3)  # {1, 2, 3}  # 自动去重
+
+# 添加元素
+set1.add(6)
+print(set1)  # {1, 2, 3, 4, 5, 6}
+
+# 删除元素
+set1.remove(3)
+print(set1)  # {1, 2, 4, 5, 6}
+
+# 集合运算
+set_a = {1, 2, 3, 4}
+set_b = {3, 4, 5, 6}
+
+# 并集
+print(set_a | set_b)  # {1, 2, 3, 4, 5, 6}
+
+# 交集
+print(set_a & set_b)  # {3, 4}
+
+# 差集
+print(set_a - set_b)  # {1, 2}
+print(set_b - set_a)  # {5, 6}
+
+# 对称差集
+print(set_a ^ set_b)  # {1, 2, 5, 6}
+
+# 集合长度
+print(len(set1))  # 5
+
+# 检查元素是否在集合中
+print(2 in set1)  # True
+print(3 in set1)  # False</code></pre>
             </div>
 
-            <!-- 5. 循环语句 -->
+            <!-- 5. 字符串操作 -->
             <div class="content-card">
-                <h3>5. 循环语句</h3>
-                <p><strong>for循环：</strong>用于遍历序列（如列表、元组、字符串）。</p>
+                <h3>5. 字符串操作</h3>
+                <p>字符串是Python中常用的数据类型，有许多内置方法。</p>
                 
-                <pre><code># for循环
-fruits = ["苹果", "香蕉", "橙子"]
-for fruit in fruits:
-    print(f"我喜欢吃{fruit}")
+                <pre><code># 创建字符串
+s = "Hello, Python!"
 
-# 遍历数字
-for i in range(5):
-    print(i)  # 0, 1, 2, 3, 4
+# 访问字符
+print(s[0])  # H
+print(s[-1])  # !
 
-for i in range(1, 6):
-    print(i)  # 1, 2, 3, 4, 5</code></pre>
-                
-                <p><strong>while循环：</strong>只要条件为真，就会一直执行。</p>
-                
-                <pre><code># while循环
-count = 0
-while count < 5:
-    print(f"计数：{count}")
-    count += 1</code></pre>
-                
-                <p><strong>break和continue：</strong></p>
-                <ul>
-                    <li><strong>break：</strong>跳出循环</li>
-                    <li><strong>continue：</strong>跳过当前循环，继续下一次循环</li>
-                </ul>
-            </div>
+# 切片
+print(s[0:5])  # Hello
+print(s[7:])  # Python!
 
-            <!-- 6. 输入输出 -->
-            <div class="content-card">
-                <h3>6. 输入输出</h3>
-                <p><strong>输出：</strong>使用print()函数</p>
-                
-                <pre><code># 输出
-print("Hello, Python!")
-print("我是", "小明")  # 多个参数
-print("年龄：", 18)
+# 字符串长度
+print(len(s))  # 13
 
-# 格式化输出
+# 字符串方法
+print(s.upper())  # HELLO, PYTHON!
+print(s.lower())  # hello, python!
+print(s.title())  # Hello, Python!
+
+# 查找子字符串
+print(s.find("Python"))  # 7
+print(s.find("Java"))  # -1
+
+# 替换
+print(s.replace("Python", "World"))  # Hello, World!
+
+# 分割
+print(s.split(", "))  # ["Hello", "Python!"]
+
+# 去除空白
+ss = "  Hello, Python!  "
+print(ss.strip())  # Hello, Python!
+
+# 检查字符串开头和结尾
+print(s.startswith("Hello"))  # True
+print(s.endswith("!"))  # True
+
+# 格式化字符串
 name = "小明"
 age = 18
 print(f"我的名字是{name}，今年{age}岁")
-print("我的名字是{}，今年{}岁".format(name, age))</code></pre>
-                
-                <p><strong>输入：</strong>使用input()函数</p>
-                
-                <pre><code># 输入
-name = input("请输入你的名字：")
-age = input("请输入你的年龄：")
-print(f"你好，{name}，你今年{age}岁")
-
-# 注意：input()返回的是字符串类型，如果需要数字类型，需要转换
-age = int(input("请输入你的年龄："))
-print(f"你明年{age + 1}岁")</code></pre>
-            </div>
-
-            <!-- 7. 异常处理 -->
-            <div class="content-card">
-                <h3>7. 异常处理</h3>
-                <p>异常处理用于捕获和处理程序运行时的错误。</p>
-                
-                <pre><code># 异常处理
-try:
-    num = int(input("请输入一个数字："))
-    result = 10 / num
-    print(f"结果：{result}")
-except ValueError:
-    print("请输入正确的数字")
-except ZeroDivisionError:
-    print("除数不能为零")
-except Exception as e:
-    print(f"发生错误：{e}")
-finally:
-    print("程序结束")</code></pre>
+print("我的名字是{}，今年{}岁".format(name, age))
+print("我的名字是%s，今年%d岁" % (name, age))</code></pre>
             </div>
         </section>
 
@@ -258,32 +302,44 @@ finally:
         <section class="practice-section">
             <h2 class="section-title">💻 实践练习</h2>
             <div class="practice-card">
-                <h3>练习1：个人信息输出</h3>
-                <p>编写一个程序，输入你的姓名、年龄、身高，然后输出一个格式化的个人信息。</p>
-                <pre><code># 示例输出：
-# 请输入你的姓名：小明
-# 请输入你的年龄：18
-# 请输入你的身高：1.75
-# 个人信息：
-# 姓名：小明
-# 年龄：18岁
-# 身高：1.75米</code></pre>
-                
-                <h3>练习2：成绩等级判断</h3>
-                <p>编写一个程序，输入学生的成绩，输出对应的等级：</p>
+                <h3>练习1：列表操作</h3>
+                <p>编写一个程序，创建一个包含10个随机整数的列表，然后：</p>
                 <ul>
-                    <li>90分及以上：优秀</li>
-                    <li>80-89分：良好</li>
-                    <li>70-79分：中等</li>
-                    <li>60-69分：及格</li>
-                    <li>60分以下：不及格</li>
+                    <li>打印列表</li>
+                    <li>计算列表的和</li>
+                    <li>找出列表中的最大值和最小值</li>
+                    <li>对列表进行排序</li>
+                    <li>反转列表</li>
                 </ul>
                 
-                <h3>练习3：数字求和</h3>
-                <p>编写一个程序，计算1到100的和。</p>
+                <h3>练习2：字典操作</h3>
+                <p>编写一个程序，创建一个学生信息字典，包含姓名、年龄、成绩等信息，然后：</p>
+                <ul>
+                    <li>打印学生的所有信息</li>
+                    <li>修改学生的年龄</li>
+                    <li>添加学生的性别信息</li>
+                    <li>删除学生的成绩信息</li>
+                    <li>遍历字典并打印所有键值对</li>
+                </ul>
                 
-                <h3>练习4：猜数字游戏</h3>
-                <p>编写一个猜数字游戏，程序随机生成一个1-100的数字，用户输入猜测的数字，程序提示"太大了"或"太小了"，直到猜对为止。</p>
+                <h3>练习3：集合操作</h3>
+                <p>编写一个程序，创建两个集合，然后：</p>
+                <ul>
+                    <li>计算并打印两个集合的并集</li>
+                    <li>计算并打印两个集合的交集</li>
+                    <li>计算并打印两个集合的差集</li>
+                    <li>检查一个集合是否是另一个集合的子集</li>
+                </ul>
+                
+                <h3>练习4：字符串操作</h3>
+                <p>编写一个程序，输入一个字符串，然后：</p>
+                <ul>
+                    <li>将字符串转换为大写</li>
+                    <li>将字符串转换为小写</li>
+                    <li>计算字符串的长度</li>
+                    <li>检查字符串是否以特定字符开头</li>
+                    <li>替换字符串中的某个子串</li>
+                </ul>
             </div>
         </section>
 
@@ -300,8 +356,8 @@ finally:
                 <div class="resource-card">
                     <div class="resource-icon">🌐</div>
                     <h3>在线资源</h3>
-                    <p>Python官方文档</p>
-                    <p>菜鸟教程 - Python基础</p>
+                    <p>Python官方文档 - 数据结构</p>
+                    <p>菜鸟教程 - Python数据结构</p>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">💻</div>

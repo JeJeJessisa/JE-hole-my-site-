@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python基础课程 - 第一单元：基础语法</title>
+    <title>Python基础课程 - 第四单元：面向对象编程</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -19,10 +19,10 @@
             <div class="nav-menu">
                 <a href="index.html" class="nav-item"><i class="fas fa-home"></i> 首页</a>
                 <a href="python-course.html" class="nav-item">课程总览</a>
-                <a href="python-unit1.html" class="nav-item active">第一单元</a>
+                <a href="python-unit1.html" class="nav-item">第一单元</a>
                 <a href="python-unit2.html" class="nav-item">第二单元</a>
                 <a href="python-unit3.html" class="nav-item">第三单元</a>
-                <a href="python-unit4.html" class="nav-item">第四单元</a>
+                <a href="python-unit4.html" class="nav-item active">第四单元</a>
             </div>
         </div>
     </nav>
@@ -31,10 +31,10 @@
         <!-- 头部区域 -->
         <header class="course-header">
             <div class="header-content">
-                <h1>第一单元：Python基础语法</h1>
-                <p class="subtitle">快速通关，掌握Python核心语法</p>
+                <h1>第四单元：面向对象编程</h1>
+                <p class="subtitle">掌握Python面向对象编程基础</p>
                 <div class="course-tagline">
-                    专为小白设计，从零开始学习Python
+                    专为小白设计，从零开始学习面向对象编程
                 </div>
             </div>
         </header>
@@ -43,8 +43,8 @@
         <section class="unit-intro">
             <h2 class="section-title">📚 单元介绍</h2>
             <div class="course-card">
-                <p>欢迎来到Python基础语法单元！这是你学习Python的第一步，也是最重要的一步。在本单元中，你将学习Python的基本语法结构，为后续的学习打下坚实的基础。</p>
-                <p>本单元适合完全的编程小白，我们会从最基础的概念开始，一步一步引导你进入Python的世界。</p>
+                <p>欢迎来到Python面向对象编程单元！在本单元中，你将学习面向对象编程（OOP）的基本概念和实践。</p>
+                <p>面向对象编程是一种编程范式，它将数据和操作数据的方法封装在一起，形成对象。这种编程方式可以使代码更加模块化、可重用和易于维护。本单元将详细介绍类、对象、继承、多态等面向对象编程的核心概念。</p>
             </div>
         </section>
 
@@ -53,12 +53,12 @@
             <h2 class="section-title">🎯 学习目标</h2>
             <div class="goals-card">
                 <ul>
-                    <li>了解Python的基本概念和特点</li>
-                    <li>掌握变量和数据类型的使用</li>
-                    <li>学习基本运算符和表达式</li>
-                    <li>理解条件语句和循环语句</li>
-                    <li>掌握输入输出操作</li>
-                    <li>了解异常处理的基本概念</li>
+                    <li>理解面向对象编程的基本概念</li>
+                    <li>掌握类和对象的创建与使用</li>
+                    <li>学习类的属性和方法</li>
+                    <li>理解构造函数的作用</li>
+                    <li>掌握继承和多态的使用</li>
+                    <li>了解封装的概念和实现</li>
                 </ul>
             </div>
         </section>
@@ -67,190 +67,302 @@
         <section class="unit-content">
             <h2 class="section-title">📖 知识点讲解</h2>
             
-            <!-- 1. Python简介 -->
+            <!-- 1. 类和对象 -->
             <div class="content-card">
-                <h3>1. Python简介</h3>
-                <p>Python是一种简单易学、功能强大的编程语言。它的语法简洁明了，非常适合初学者学习。</p>
-                <p><strong>Python的特点：</strong></p>
-                <ul>
-                    <li>语法简洁，代码可读性高</li>
-                    <li>面向对象编程</li>
-                    <li>丰富的标准库和第三方库</li>
-                    <li>跨平台，可在Windows、Mac、Linux等系统上运行</li>
-                    <li>广泛应用于Web开发、数据分析、人工智能等领域</li>
-                </ul>
+                <h3>1. 类和对象</h3>
+                <p>类是对象的蓝图，它定义了对象的属性和方法。对象是类的实例。</p>
+                
+                <pre><code># 定义类
+class Person:
+    """人员类"""
+    
+    # 类属性
+    species = "人类"
+    
+    # 构造函数
+    def __init__(self, name, age):
+        """初始化方法"""
+        # 实例属性
+        self.name = name
+        self.age = age
+    
+    # 实例方法
+    def greet(self):
+        """打招呼"""
+        return f"你好，我叫{self.name}，今年{self.age}岁。"
+    
+    def celebrate_birthday(self):
+        """庆祝生日"""
+        self.age += 1
+        return f"生日快乐！{self.name}现在{self.age}岁了。"
+
+# 创建对象
+person1 = Person("小明", 18)
+person2 = Person("小红", 17)
+
+# 访问实例属性
+print(person1.name)  # 小明
+print(person1.age)  # 18
+
+# 访问类属性
+print(Person.species)  # 人类
+print(person1.species)  # 人类
+
+# 调用实例方法
+print(person1.greet())  # 你好，我叫小明，今年18岁。
+print(person1.celebrate_birthday())  # 生日快乐！小明现在19岁了。
+print(person2.greet())  # 你好，我叫小红，今年17岁。</code></pre>
             </div>
 
-            <!-- 2. 变量和数据类型 -->
+            <!-- 2. 类的属性和方法 -->
             <div class="content-card">
-                <h3>2. 变量和数据类型</h3>
-                <p><strong>变量：</strong>变量是用来存储数据的容器。在Python中，变量不需要声明类型，直接赋值即可。</p>
-                <pre><code># 变量赋值
-name = "小明"
-age = 18
-height = 1.75
-is_student = True</code></pre>
+                <h3>2. 类的属性和方法</h3>
+                <p>类可以有类属性和实例属性，以及类方法、实例方法和静态方法。</p>
                 
-                <p><strong>数据类型：</strong></p>
-                <ul>
-                    <li><strong>整数(int)：</strong>如 1, 2, 3, -4</li>
-                    <li><strong>浮点数(float)：</strong>如 1.0, 2.5, -3.14</li>
-                    <li><strong>字符串(str)：</strong>如 "Hello", 'Python'</li>
-                    <li><strong>布尔值(bool)：</strong>True 或 False</li>
-                </ul>
-                
-                <pre><code># 查看数据类型
-print(type(name))    # &lt;class 'str'&gt;
-print(type(age))     # &lt;class 'int'&gt;
-print(type(height))  # &lt;class 'float'&gt;
-print(type(is_student))  # &lt;class 'bool'&gt;</code></pre>
+                <pre><code>class Student:
+    """学生类"""
+    
+    # 类属性
+    school = "北京大学"
+    student_count = 0
+    
+    def __init__(self, name, grade):
+        """初始化方法"""
+        self.name = name
+        self.grade = grade
+        Student.student_count += 1
+    
+    # 实例方法
+    def get_grade(self):
+        """获取成绩"""
+        return self.grade
+    
+    # 类方法
+    @classmethod
+    def get_school(cls):
+        """获取学校名称"""
+        return cls.school
+    
+    # 静态方法
+    @staticmethod
+    def is_passing_grade(grade):
+        """判断是否及格"""
+        return grade >= 60
+
+# 创建学生对象
+student1 = Student("小明", 85)
+student2 = Student("小红", 75)
+
+# 访问实例属性和方法
+print(student1.name)  # 小明
+print(student1.get_grade())  # 85
+
+# 访问类属性和方法
+print(Student.school)  # 北京大学
+print(Student.get_school())  # 北京大学
+print(Student.student_count)  # 2
+
+# 使用静态方法
+print(Student.is_passing_grade(70))  # True
+print(Student.is_passing_grade(50))  # False</code></pre>
             </div>
 
-            <!-- 3. 运算符和表达式 -->
+            <!-- 3. 继承 -->
             <div class="content-card">
-                <h3>3. 运算符和表达式</h3>
-                <p><strong>算术运算符：</strong></p>
-                <ul>
-                    <li>+ (加法)</li>
-                    <li>- (减法)</li>
-                    <li>* (乘法)</li>
-                    <li>/ (除法)</li>
-                    <li>// (整除)</li>
-                    <li>% (取模)</li>
-                    <li>** (幂)</li>
-                </ul>
+                <h3>3. 继承</h3>
+                <p>继承是面向对象编程的重要特性，它允许一个类继承另一个类的属性和方法。</p>
                 
-                <pre><code># 算术运算
-a = 10
-b = 3
-print(a + b)  # 13
-print(a - b)  # 7
-print(a * b)  # 30
-print(a / b)  # 3.3333333333333335
-print(a // b)  # 3
-print(a % b)  # 1
-print(a ** b)  # 1000</code></pre>
-                
-                <p><strong>比较运算符：</strong></p>
-                <ul>
-                    <li>== (等于)</li>
-                    <li>!= (不等于)</li>
-                    <li>&gt; (大于)</li>
-                    <li>&lt; (小于)</li>
-                    <li>&gt;= (大于等于)</li>
-                    <li>&lt;= (小于等于)</li>
-                </ul>
-                
-                <p><strong>逻辑运算符：</strong></p>
-                <ul>
-                    <li>and (与)</li>
-                    <li>or (或)</li>
-                    <li>not (非)</li>
-                </ul>
+                <pre><code># 父类
+class Animal:
+    """动物类"""
+    
+    def __init__(self, name):
+        """初始化方法"""
+        self.name = name
+    
+    def speak(self):
+        """发出声音"""
+        return "动物发出声音"
+
+# 子类 - 继承自Animal
+class Dog(Animal):
+    """狗类"""
+    
+    def speak(self):
+        """发出声音"""
+        return f"{self.name}汪汪叫"
+
+# 子类 - 继承自Animal
+class Cat(Animal):
+    """猫类"""
+    
+    def speak(self):
+        """发出声音"""
+        return f"{self.name}喵喵叫"
+
+# 创建对象
+animal = Animal("动物")
+dog = Dog("旺财")
+cat = Cat("咪咪")
+
+# 调用方法
+print(animal.speak())  # 动物发出声音
+print(dog.speak())  # 旺财汪汪叫
+print(cat.speak())  # 咪咪喵喵叫
+
+# 检查继承关系
+print(isinstance(dog, Animal))  # True
+print(isinstance(cat, Animal))  # True
+print(isinstance(animal, Dog))  # False</code></pre>
             </div>
 
-            <!-- 4. 条件语句 -->
+            <!-- 4. 多态 -->
             <div class="content-card">
-                <h3>4. 条件语句</h3>
-                <p>条件语句用于根据不同的条件执行不同的代码块。</p>
+                <h3>4. 多态</h3>
+                <p>多态是指不同类的对象可以使用相同的方法名，但表现出不同的行为。</p>
                 
-                <pre><code># if语句
-age = 18
-if age >= 18:
-    print("你已经成年了")
-else:
-    print("你还未成年")
+                <pre><code>class Shape:
+    """形状类"""
+    
+    def area(self):
+        """计算面积"""
+        pass
 
-# if-elif-else语句
-score = 85
-if score >= 90:
-    print("优秀")
-elif score >= 80:
-    print("良好")
-elif score >= 60:
-    print("及格")
-else:
-    print("不及格")</code></pre>
+class Rectangle(Shape):
+    """矩形类"""
+    
+    def __init__(self, width, height):
+        """初始化方法"""
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        """计算面积"""
+        return self.width * self.height
+
+class Circle(Shape):
+    """圆形类"""
+    
+    def __init__(self, radius):
+        """初始化方法"""
+        self.radius = radius
+    
+    def area(self):
+        """计算面积"""
+        import math
+        return math.pi * self.radius ** 2
+
+# 创建对象
+shapes = [
+    Rectangle(5, 4),
+    Circle(3)
+]
+
+# 多态：不同对象调用相同方法，表现出不同行为
+for shape in shapes:
+    print(f"面积: {shape.area()}")
+
+# 输出：
+# 面积: 20
+# 面积: 28.274333882308138</code></pre>
             </div>
 
-            <!-- 5. 循环语句 -->
+            <!-- 5. 封装 -->
             <div class="content-card">
-                <h3>5. 循环语句</h3>
-                <p><strong>for循环：</strong>用于遍历序列（如列表、元组、字符串）。</p>
+                <h3>5. 封装</h3>
+                <p>封装是指将对象的属性和方法封装在一起，隐藏内部实现细节，只提供公共接口。</p>
                 
-                <pre><code># for循环
-fruits = ["苹果", "香蕉", "橙子"]
-for fruit in fruits:
-    print(f"我喜欢吃{fruit}")
+                <pre><code>class BankAccount:
+    """银行账户类"""
+    
+    def __init__(self, account_number, balance=0):
+        """初始化方法"""
+        self.account_number = account_number  # 公共属性
+        self.__balance = balance  # 私有属性（以双下划线开头）
+    
+    def deposit(self, amount):
+        """存款"""
+        if amount > 0:
+            self.__balance += amount
+            return f"存款成功，当前余额: {self.__balance}"
+        else:
+            return "存款金额必须大于0"
+    
+    def withdraw(self, amount):
+        """取款"""
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+            return f"取款成功，当前余额: {self.__balance}"
+        else:
+            return "取款金额无效"
+    
+    def get_balance(self):
+        """获取余额"""
+        return self.__balance
 
-# 遍历数字
-for i in range(5):
-    print(i)  # 0, 1, 2, 3, 4
+# 创建账户
+account = BankAccount("123456789", 1000)
 
-for i in range(1, 6):
-    print(i)  # 1, 2, 3, 4, 5</code></pre>
-                
-                <p><strong>while循环：</strong>只要条件为真，就会一直执行。</p>
-                
-                <pre><code># while循环
-count = 0
-while count < 5:
-    print(f"计数：{count}")
-    count += 1</code></pre>
-                
-                <p><strong>break和continue：</strong></p>
-                <ul>
-                    <li><strong>break：</strong>跳出循环</li>
-                    <li><strong>continue：</strong>跳过当前循环，继续下一次循环</li>
-                </ul>
+# 访问公共属性
+print(account.account_number)  # 123456789
+
+# 调用方法
+print(account.deposit(500))  # 存款成功，当前余额: 1500
+print(account.withdraw(200))  # 取款成功，当前余额: 1300
+print(account.get_balance())  # 1300
+
+# 尝试直接访问私有属性（会失败）
+# print(account.__balance)  # 这会报错
+
+# 但可以通过特殊方式访问（不推荐）
+print(account._BankAccount__balance)  # 1300</code></pre>
             </div>
 
-            <!-- 6. 输入输出 -->
+            <!-- 6. 特殊方法 -->
             <div class="content-card">
-                <h3>6. 输入输出</h3>
-                <p><strong>输出：</strong>使用print()函数</p>
+                <h3>6. 特殊方法</h3>
+                <p>Python中有许多特殊方法，它们以双下划线开头和结尾，用于实现对象的特殊行为。</p>
                 
-                <pre><code># 输出
-print("Hello, Python!")
-print("我是", "小明")  # 多个参数
-print("年龄：", 18)
+                <pre><code>class Point:
+    """点类"""
+    
+    def __init__(self, x, y):
+        """初始化方法"""
+        self.x = x
+        self.y = y
+    
+    def __str__(self):
+        """字符串表示"""
+        return f"Point({self.x}, {self.y})"
+    
+    def __repr__(self):
+        """正式表示"""
+        return f"Point({self.x}, {self.y})"
+    
+    def __add__(self, other):
+        """加法运算"""
+        return Point(self.x + other.x, self.y + other.y)
+    
+    def __eq__(self, other):
+        """相等比较"""
+        return self.x == other.x and self.y == other.y
 
-# 格式化输出
-name = "小明"
-age = 18
-print(f"我的名字是{name}，今年{age}岁")
-print("我的名字是{}，今年{}岁".format(name, age))</code></pre>
-                
-                <p><strong>输入：</strong>使用input()函数</p>
-                
-                <pre><code># 输入
-name = input("请输入你的名字：")
-age = input("请输入你的年龄：")
-print(f"你好，{name}，你今年{age}岁")
+# 创建点对象
+p1 = Point(1, 2)
+p2 = Point(3, 4)
 
-# 注意：input()返回的是字符串类型，如果需要数字类型，需要转换
-age = int(input("请输入你的年龄："))
-print(f"你明年{age + 1}岁")</code></pre>
-            </div>
+# 使用特殊方法
+print(p1)  # 调用__str__方法，输出: Point(1, 2)
+print(repr(p1))  # 调用__repr__方法，输出: Point(1, 2)
 
-            <!-- 7. 异常处理 -->
-            <div class="content-card">
-                <h3>7. 异常处理</h3>
-                <p>异常处理用于捕获和处理程序运行时的错误。</p>
-                
-                <pre><code># 异常处理
-try:
-    num = int(input("请输入一个数字："))
-    result = 10 / num
-    print(f"结果：{result}")
-except ValueError:
-    print("请输入正确的数字")
-except ZeroDivisionError:
-    print("除数不能为零")
-except Exception as e:
-    print(f"发生错误：{e}")
-finally:
-    print("程序结束")</code></pre>
+# 加法运算
+p3 = p1 + p2  # 调用__add__方法
+print(p3)  # Point(4, 6)
+
+# 相等比较
+p4 = Point(1, 2)
+print(p1 == p4)  # 调用__eq__方法，输出: True
+print(p1 == p2)  # 输出: False</code></pre>
             </div>
         </section>
 
@@ -258,32 +370,20 @@ finally:
         <section class="practice-section">
             <h2 class="section-title">💻 实践练习</h2>
             <div class="practice-card">
-                <h3>练习1：个人信息输出</h3>
-                <p>编写一个程序，输入你的姓名、年龄、身高，然后输出一个格式化的个人信息。</p>
-                <pre><code># 示例输出：
-# 请输入你的姓名：小明
-# 请输入你的年龄：18
-# 请输入你的身高：1.75
-# 个人信息：
-# 姓名：小明
-# 年龄：18岁
-# 身高：1.75米</code></pre>
+                <h3>练习1：类和对象</h3>
+                <p>创建一个Car类，包含品牌、型号、年份等属性，以及启动、加速、刹车等方法。</p>
                 
-                <h3>练习2：成绩等级判断</h3>
-                <p>编写一个程序，输入学生的成绩，输出对应的等级：</p>
-                <ul>
-                    <li>90分及以上：优秀</li>
-                    <li>80-89分：良好</li>
-                    <li>70-79分：中等</li>
-                    <li>60-69分：及格</li>
-                    <li>60分以下：不及格</li>
-                </ul>
+                <h3>练习2：继承</h3>
+                <p>创建一个Employee基类，然后创建Manager和Developer子类，每个子类都有自己的特殊方法。</p>
                 
-                <h3>练习3：数字求和</h3>
-                <p>编写一个程序，计算1到100的和。</p>
+                <h3>练习3：多态</h3>
+                <p>创建一个Shape基类，然后创建Triangle、Square等子类，每个子类都实现自己的area()方法。</p>
                 
-                <h3>练习4：猜数字游戏</h3>
-                <p>编写一个猜数字游戏，程序随机生成一个1-100的数字，用户输入猜测的数字，程序提示"太大了"或"太小了"，直到猜对为止。</p>
+                <h3>练习4：封装</h3>
+                <p>创建一个Person类，包含私有属性年龄，通过公共方法来访问和修改年龄。</p>
+                
+                <h3>练习5：特殊方法</h3>
+                <p>创建一个Vector类，实现加法、减法、乘法等特殊方法。</p>
             </div>
         </section>
 
@@ -300,8 +400,8 @@ finally:
                 <div class="resource-card">
                     <div class="resource-icon">🌐</div>
                     <h3>在线资源</h3>
-                    <p>Python官方文档</p>
-                    <p>菜鸟教程 - Python基础</p>
+                    <p>Python官方文档 - 类</p>
+                    <p>菜鸟教程 - Python面向对象</p>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">💻</div>

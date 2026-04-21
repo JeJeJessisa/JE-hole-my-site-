@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python基础课程 - 第一单元：基础语法</title>
+    <title>Python基础课程 - 第三单元：函数与模块</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -19,9 +19,9 @@
             <div class="nav-menu">
                 <a href="index.html" class="nav-item"><i class="fas fa-home"></i> 首页</a>
                 <a href="python-course.html" class="nav-item">课程总览</a>
-                <a href="python-unit1.html" class="nav-item active">第一单元</a>
+                <a href="python-unit1.html" class="nav-item">第一单元</a>
                 <a href="python-unit2.html" class="nav-item">第二单元</a>
-                <a href="python-unit3.html" class="nav-item">第三单元</a>
+                <a href="python-unit3.html" class="nav-item active">第三单元</a>
                 <a href="python-unit4.html" class="nav-item">第四单元</a>
             </div>
         </div>
@@ -31,10 +31,10 @@
         <!-- 头部区域 -->
         <header class="course-header">
             <div class="header-content">
-                <h1>第一单元：Python基础语法</h1>
-                <p class="subtitle">快速通关，掌握Python核心语法</p>
+                <h1>第三单元：函数与模块</h1>
+                <p class="subtitle">掌握Python函数和模块的使用</p>
                 <div class="course-tagline">
-                    专为小白设计，从零开始学习Python
+                    专为小白设计，从零开始学习函数与模块
                 </div>
             </div>
         </header>
@@ -43,8 +43,8 @@
         <section class="unit-intro">
             <h2 class="section-title">📚 单元介绍</h2>
             <div class="course-card">
-                <p>欢迎来到Python基础语法单元！这是你学习Python的第一步，也是最重要的一步。在本单元中，你将学习Python的基本语法结构，为后续的学习打下坚实的基础。</p>
-                <p>本单元适合完全的编程小白，我们会从最基础的概念开始，一步一步引导你进入Python的世界。</p>
+                <p>欢迎来到Python函数与模块单元！在本单元中，你将学习如何使用函数来组织代码，以及如何使用模块来重用代码。</p>
+                <p>函数是一段可重用的代码，它可以接收输入参数并返回输出结果。模块是一个包含Python定义和语句的文件，它可以被其他程序导入和使用。掌握函数和模块的使用是编写高质量Python代码的关键。</p>
             </div>
         </section>
 
@@ -53,12 +53,12 @@
             <h2 class="section-title">🎯 学习目标</h2>
             <div class="goals-card">
                 <ul>
-                    <li>了解Python的基本概念和特点</li>
-                    <li>掌握变量和数据类型的使用</li>
-                    <li>学习基本运算符和表达式</li>
-                    <li>理解条件语句和循环语句</li>
-                    <li>掌握输入输出操作</li>
-                    <li>了解异常处理的基本概念</li>
+                    <li>掌握函数的定义和调用</li>
+                    <li>学习函数参数的传递方式</li>
+                    <li>理解函数的返回值</li>
+                    <li>了解局部变量和全局变量</li>
+                    <li>学习模块的导入和使用</li>
+                    <li>掌握标准库的基本使用</li>
                 </ul>
             </div>
         </section>
@@ -67,190 +67,224 @@
         <section class="unit-content">
             <h2 class="section-title">📖 知识点讲解</h2>
             
-            <!-- 1. Python简介 -->
+            <!-- 1. 函数定义和调用 -->
             <div class="content-card">
-                <h3>1. Python简介</h3>
-                <p>Python是一种简单易学、功能强大的编程语言。它的语法简洁明了，非常适合初学者学习。</p>
-                <p><strong>Python的特点：</strong></p>
-                <ul>
-                    <li>语法简洁，代码可读性高</li>
-                    <li>面向对象编程</li>
-                    <li>丰富的标准库和第三方库</li>
-                    <li>跨平台，可在Windows、Mac、Linux等系统上运行</li>
-                    <li>广泛应用于Web开发、数据分析、人工智能等领域</li>
-                </ul>
+                <h3>1. 函数定义和调用</h3>
+                <p>函数是一段可重用的代码块，通过def关键字定义。</p>
+                
+                <pre><code># 定义函数
+def greet(name):
+    """打印问候信息"""
+    print(f"你好，{name}！")
+
+# 调用函数
+greet("小明")  # 你好，小明！
+
+# 带返回值的函数
+def add(a, b):
+    """计算两个数的和"""
+    return a + b
+
+# 调用带返回值的函数
+result = add(3, 5)
+print(result)  # 8
+
+# 带默认参数的函数
+def greet(name, greeting="你好"):
+    """打印问候信息，默认问候语为"你好""""
+    print(f"{greeting}，{name}！")
+
+# 调用带默认参数的函数
+greet("小明")  # 你好，小明！
+greet("小明", "早上好")  # 早上好，小明！</code></pre>
             </div>
 
-            <!-- 2. 变量和数据类型 -->
+            <!-- 2. 函数参数传递 -->
             <div class="content-card">
-                <h3>2. 变量和数据类型</h3>
-                <p><strong>变量：</strong>变量是用来存储数据的容器。在Python中，变量不需要声明类型，直接赋值即可。</p>
-                <pre><code># 变量赋值
-name = "小明"
-age = 18
-height = 1.75
-is_student = True</code></pre>
+                <h3>2. 函数参数传递</h3>
+                <p>Python支持多种参数传递方式，包括位置参数、关键字参数、可变参数等。</p>
                 
-                <p><strong>数据类型：</strong></p>
-                <ul>
-                    <li><strong>整数(int)：</strong>如 1, 2, 3, -4</li>
-                    <li><strong>浮点数(float)：</strong>如 1.0, 2.5, -3.14</li>
-                    <li><strong>字符串(str)：</strong>如 "Hello", 'Python'</li>
-                    <li><strong>布尔值(bool)：</strong>True 或 False</li>
-                </ul>
-                
-                <pre><code># 查看数据类型
-print(type(name))    # &lt;class 'str'&gt;
-print(type(age))     # &lt;class 'int'&gt;
-print(type(height))  # &lt;class 'float'&gt;
-print(type(is_student))  # &lt;class 'bool'&gt;</code></pre>
+                <pre><code># 位置参数
+def describe_pet(animal_type, pet_name):
+    """描述宠物"""
+    print(f"我有一只{animal_type}。")
+    print(f"它的名字叫{pet_name}。")
+
+# 按位置传递参数
+describe_pet("狗", "旺财")
+
+# 关键字参数
+describe_pet(animal_type="猫", pet_name="咪咪")
+describe_pet(pet_name="花花", animal_type="兔子")
+
+# 可变参数（*args）
+def sum_numbers(*numbers):
+    """计算任意数量数字的和"""
+    total = 0
+    for number in numbers:
+        total += number
+    return total
+
+# 调用可变参数函数
+print(sum_numbers(1, 2, 3))  # 6
+print(sum_numbers(1, 2, 3, 4, 5))  # 15
+
+# 关键字可变参数（**kwargs）
+def build_profile(first, last, **user_info):
+    """构建用户资料"""
+    profile = {"first_name": first, "last_name": last}
+    for key, value in user_info.items():
+        profile[key] = value
+    return profile
+
+# 调用关键字可变参数函数
+user_profile = build_profile("张", "三", age=18, city="北京", job="学生")
+print(user_profile)</code></pre>
             </div>
 
-            <!-- 3. 运算符和表达式 -->
+            <!-- 3. 局部变量和全局变量 -->
             <div class="content-card">
-                <h3>3. 运算符和表达式</h3>
-                <p><strong>算术运算符：</strong></p>
-                <ul>
-                    <li>+ (加法)</li>
-                    <li>- (减法)</li>
-                    <li>* (乘法)</li>
-                    <li>/ (除法)</li>
-                    <li>// (整除)</li>
-                    <li>% (取模)</li>
-                    <li>** (幂)</li>
-                </ul>
+                <h3>3. 局部变量和全局变量</h3>
+                <p>局部变量是在函数内部定义的变量，只能在函数内部使用。全局变量是在函数外部定义的变量，可以在整个程序中使用。</p>
                 
-                <pre><code># 算术运算
-a = 10
-b = 3
-print(a + b)  # 13
-print(a - b)  # 7
-print(a * b)  # 30
-print(a / b)  # 3.3333333333333335
-print(a // b)  # 3
-print(a % b)  # 1
-print(a ** b)  # 1000</code></pre>
-                
-                <p><strong>比较运算符：</strong></p>
-                <ul>
-                    <li>== (等于)</li>
-                    <li>!= (不等于)</li>
-                    <li>&gt; (大于)</li>
-                    <li>&lt; (小于)</li>
-                    <li>&gt;= (大于等于)</li>
-                    <li>&lt;= (小于等于)</li>
-                </ul>
-                
-                <p><strong>逻辑运算符：</strong></p>
-                <ul>
-                    <li>and (与)</li>
-                    <li>or (或)</li>
-                    <li>not (非)</li>
-                </ul>
+                <pre><code># 全局变量
+message = "Hello, global!"
+
+def show_message():
+    # 局部变量
+    local_message = "Hello, local!"
+    print(local_message)  # 访问局部变量
+    print(message)  # 访问全局变量
+
+show_message()
+print(message)  # 访问全局变量
+# print(local_message)  # 这会报错，因为局部变量在函数外部不可访问
+
+# 修改全局变量
+def modify_global():
+    global message  # 声明要修改全局变量
+    message = "Hello, modified!"
+    print(message)
+
+modify_global()
+print(message)  # 输出修改后的全局变量</code></pre>
             </div>
 
-            <!-- 4. 条件语句 -->
+            <!-- 4. 模块的导入和使用 -->
             <div class="content-card">
-                <h3>4. 条件语句</h3>
-                <p>条件语句用于根据不同的条件执行不同的代码块。</p>
+                <h3>4. 模块的导入和使用</h3>
+                <p>模块是一个包含Python定义和语句的文件，它可以被其他程序导入和使用。</p>
                 
-                <pre><code># if语句
-age = 18
-if age >= 18:
-    print("你已经成年了")
-else:
-    print("你还未成年")
+                <pre><code># 导入整个模块
+import math
 
-# if-elif-else语句
-score = 85
-if score >= 90:
-    print("优秀")
-elif score >= 80:
-    print("良好")
-elif score >= 60:
-    print("及格")
-else:
-    print("不及格")</code></pre>
+# 使用模块中的函数
+print(math.sqrt(16))  # 4.0
+print(math.pi)  # 3.141592653589793
+
+# 导入模块中的特定函数
+from math import sqrt, pi
+
+print(sqrt(25))  # 5.0
+print(pi)  # 3.141592653589793
+
+# 导入模块中的所有函数
+from math import *
+
+print(sin(0))  # 0.0
+print(cos(0))  # 1.0
+
+# 给模块指定别名
+import math as m
+
+print(m.sqrt(36))  # 6.0
+
+# 给导入的函数指定别名
+from math import sqrt as square_root
+
+print(square_root(49))  # 7.0</code></pre>
             </div>
 
-            <!-- 5. 循环语句 -->
+            <!-- 5. 标准库的使用 -->
             <div class="content-card">
-                <h3>5. 循环语句</h3>
-                <p><strong>for循环：</strong>用于遍历序列（如列表、元组、字符串）。</p>
+                <h3>5. 标准库的使用</h3>
+                <p>Python标准库包含许多有用的模块，可以帮助我们完成各种任务。</p>
                 
-                <pre><code># for循环
-fruits = ["苹果", "香蕉", "橙子"]
-for fruit in fruits:
-    print(f"我喜欢吃{fruit}")
+                <pre><code># 使用random模块
+import random
 
-# 遍历数字
-for i in range(5):
-    print(i)  # 0, 1, 2, 3, 4
+# 生成随机整数
+print(random.randint(1, 10))  # 生成1-10之间的随机整数
 
-for i in range(1, 6):
-    print(i)  # 1, 2, 3, 4, 5</code></pre>
-                
-                <p><strong>while循环：</strong>只要条件为真，就会一直执行。</p>
-                
-                <pre><code># while循环
-count = 0
-while count < 5:
-    print(f"计数：{count}")
-    count += 1</code></pre>
-                
-                <p><strong>break和continue：</strong></p>
-                <ul>
-                    <li><strong>break：</strong>跳出循环</li>
-                    <li><strong>continue：</strong>跳过当前循环，继续下一次循环</li>
-                </ul>
+# 从列表中随机选择一个元素
+fruits = ["苹果", "香蕉", "橙子", "葡萄"]
+print(random.choice(fruits))  # 随机选择一个水果
+
+# 打乱列表
+random.shuffle(fruits)
+print(fruits)  # 打乱后的列表
+
+# 使用datetime模块
+import datetime
+
+# 获取当前日期和时间
+now = datetime.datetime.now()
+print(now)  # 输出当前日期和时间
+
+# 格式化日期
+print(now.strftime("%Y-%m-%d %H:%M:%S"))  # 格式化为年-月-日 时:分:秒
+
+# 使用os模块
+import os
+
+# 获取当前工作目录
+print(os.getcwd())  # 输出当前工作目录
+
+# 列出目录中的文件和文件夹
+print(os.listdir("."))  # 列出当前目录中的内容
+
+# 使用sys模块
+import sys
+
+# 打印Python版本
+print(sys.version)  # 输出Python版本
+
+# 打印命令行参数
+print(sys.argv)  # 输出命令行参数</code></pre>
             </div>
 
-            <!-- 6. 输入输出 -->
+            <!-- 6. 自定义模块 -->
             <div class="content-card">
-                <h3>6. 输入输出</h3>
-                <p><strong>输出：</strong>使用print()函数</p>
+                <h3>6. 自定义模块</h3>
+                <p>你可以创建自己的模块，然后在其他程序中导入和使用。</p>
                 
-                <pre><code># 输出
-print("Hello, Python!")
-print("我是", "小明")  # 多个参数
-print("年龄：", 18)
+                <pre><code># 假设我们创建了一个名为mymodule.py的文件，内容如下：
+'''
+# mymodule.py
+def greet(name):
+    """打印问候信息"""
+    return f"你好，{name}！"
 
-# 格式化输出
-name = "小明"
-age = 18
-print(f"我的名字是{name}，今年{age}岁")
-print("我的名字是{}，今年{}岁".format(name, age))</code></pre>
-                
-                <p><strong>输入：</strong>使用input()函数</p>
-                
-                <pre><code># 输入
-name = input("请输入你的名字：")
-age = input("请输入你的年龄：")
-print(f"你好，{name}，你今年{age}岁")
+def add(a, b):
+    """计算两个数的和"""
+    return a + b
 
-# 注意：input()返回的是字符串类型，如果需要数字类型，需要转换
-age = int(input("请输入你的年龄："))
-print(f"你明年{age + 1}岁")</code></pre>
-            </div>
+PI = 3.141592653589793
+'''
 
-            <!-- 7. 异常处理 -->
-            <div class="content-card">
-                <h3>7. 异常处理</h3>
-                <p>异常处理用于捕获和处理程序运行时的错误。</p>
-                
-                <pre><code># 异常处理
-try:
-    num = int(input("请输入一个数字："))
-    result = 10 / num
-    print(f"结果：{result}")
-except ValueError:
-    print("请输入正确的数字")
-except ZeroDivisionError:
-    print("除数不能为零")
-except Exception as e:
-    print(f"发生错误：{e}")
-finally:
-    print("程序结束")</code></pre>
+# 在另一个文件中导入和使用
+# import mymodule
+# 
+# print(mymodule.greet("小明"))  # 你好，小明！
+# print(mymodule.add(3, 5))  # 8
+# print(mymodule.PI)  # 3.141592653589793
+
+# 或者
+# from mymodule import greet, add, PI
+# 
+# print(greet("小明"))  # 你好，小明！
+# print(add(3, 5))  # 8
+# print(PI)  # 3.141592653589793</code></pre>
             </div>
         </section>
 
@@ -258,32 +292,20 @@ finally:
         <section class="practice-section">
             <h2 class="section-title">💻 实践练习</h2>
             <div class="practice-card">
-                <h3>练习1：个人信息输出</h3>
-                <p>编写一个程序，输入你的姓名、年龄、身高，然后输出一个格式化的个人信息。</p>
-                <pre><code># 示例输出：
-# 请输入你的姓名：小明
-# 请输入你的年龄：18
-# 请输入你的身高：1.75
-# 个人信息：
-# 姓名：小明
-# 年龄：18岁
-# 身高：1.75米</code></pre>
+                <h3>练习1：函数定义和调用</h3>
+                <p>编写一个函数，计算两个数的乘积，并调用该函数计算不同数值的乘积。</p>
                 
-                <h3>练习2：成绩等级判断</h3>
-                <p>编写一个程序，输入学生的成绩，输出对应的等级：</p>
-                <ul>
-                    <li>90分及以上：优秀</li>
-                    <li>80-89分：良好</li>
-                    <li>70-79分：中等</li>
-                    <li>60-69分：及格</li>
-                    <li>60分以下：不及格</li>
-                </ul>
+                <h3>练习2：函数参数</h3>
+                <p>编写一个函数，计算矩形的面积，函数接收长度和宽度作为参数，并返回面积。</p>
                 
-                <h3>练习3：数字求和</h3>
-                <p>编写一个程序，计算1到100的和。</p>
+                <h3>练习3：可变参数</h3>
+                <p>编写一个函数，计算任意数量数字的平均值。</p>
                 
-                <h3>练习4：猜数字游戏</h3>
-                <p>编写一个猜数字游戏，程序随机生成一个1-100的数字，用户输入猜测的数字，程序提示"太大了"或"太小了"，直到猜对为止。</p>
+                <h3>练习4：模块使用</h3>
+                <p>使用random模块生成一个随机密码，密码长度为8位，包含大小写字母和数字。</p>
+                
+                <h3>练习5：自定义模块</h3>
+                <p>创建一个名为calculator.py的模块，包含加、减、乘、除四个函数，然后在另一个文件中导入并使用这些函数。</p>
             </div>
         </section>
 
@@ -300,8 +322,8 @@ finally:
                 <div class="resource-card">
                     <div class="resource-icon">🌐</div>
                     <h3>在线资源</h3>
-                    <p>Python官方文档</p>
-                    <p>菜鸟教程 - Python基础</p>
+                    <p>Python官方文档 - 函数</p>
+                    <p>菜鸟教程 - Python函数</p>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">💻</div>
